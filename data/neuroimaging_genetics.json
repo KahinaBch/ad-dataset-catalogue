@@ -1693,7 +1693,7 @@
     ],
     "access": "restricted",
     "n_subjects": 284,
-    "n_note": "",
+    "n_note": "284",
     "origin": [
       "USA"
     ],
@@ -2091,7 +2091,7 @@
     "id": "s3wp",
     "name": "S3WP",
     "full_name": "Swedish SciLifeLab SCAPIS Wellness Profiling study",
-    "year": null,
+    "year": 2020,
     "data_types": [
       "Proteomics",
       "Metabolomics",
