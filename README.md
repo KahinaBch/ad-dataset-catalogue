@@ -25,13 +25,13 @@ notebooks/
 
 | Region | Count |
 |--------|-------|
-| North America | 18 |
-| Europe | 14 |
-| Asia-Pacific | 8 |
-| Latin America | 3 |
-| Africa | 2 |
-| Middle East / South Asia | 2 |
-| **Total** | **47+** |
+| North America | 24 |
+| Europe | 17 |
+| Asia-Pacific | 7 |
+| Latin America | 1 |
+| Africa | 1 |
+| Middle East / South Asia | 1 |
+| **Total** | **51** |
 
 ## Contributing
 
