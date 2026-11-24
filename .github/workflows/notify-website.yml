@@ -1,0 +1,32 @@
+name: Redeploy website
+
+# When the catalogue changes on main, ask ad-diversity-website to rebuild.
+# Its deploy workflow copies this file into public/data/datasets.json
+# (npm run sync:catalogue) and republishes the site on GitHub Pages.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - data/neuroimaging_genetics.json
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the website deploy
+        env:
+          # Fine-grained token with "Contents: Read and write" on
+          # KahinaBch/ad-diversity-website, saved as a secret in this repo.
+          GH_TOKEN: ${{ secrets.WEBSITE_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Secret WEBSITE_DISPATCH_TOKEN is not set; the website was not redeployed."
+            exit 1
+          fi
+          gh api repos/KahinaBch/ad-diversity-website/dispatches \
+            -f event_type=catalogue-updated \
+            -f "client_payload[sha]=${{ github.sha }}"
+          echo "Website deploy requested for catalogue commit ${{ github.sha }}."
